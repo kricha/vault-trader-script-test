@@ -1,0 +1,36 @@
+{
+	"name": "vault trader script",
+	"dockerComposeFile": ["../docker-compose.yml", "../docker-compose-local.yml"], // You need to point it your `docker-compose.yml` file with proper path.
+	// Uncomment the next line if you want to publish any ports.
+	"onCreateCommand": {
+		"script": "sleep 10 && echo 'Ready :)'"
+	},
+	"forwardPorts": ["logs:80"],
+	"portsAttributes": {
+		"logs:80": {
+			"label": "Seq Logs",
+			"onAutoForward": "notify"
+		}
+	},
+	"service": "script", // You must define which service you are going to use from docker compose.
+	"workspaceFolder": "/app", // path to your source inside docker file
+	"customizations": {
+		"settings": {
+			"eslint.validate": [
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact"
+			],
+			"editor.codeActionsOnSave": {
+				"source.fixAll.eslint": true
+			}
+		},
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
+  }

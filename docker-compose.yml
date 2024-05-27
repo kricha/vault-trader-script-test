@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  script:
+    image: vault_script
+    container_name: vault_script
+    command: 'pnpm run dev'

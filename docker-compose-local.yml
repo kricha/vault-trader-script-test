@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  script:
+    build:
+      context: .
+      target: script
+    volumes:
+      - ./:/app
+  logs:
+    image: datalust/seq
+    # network_mode: service:script
+    environment:
+      ACCEPT_EULA: Y
+      SEQ_FIRSTRUN_ADMINPASSWORDHASH: QIGsHk5OJqACC/sFeyr+90UR1HhWh25+oHduYqSAHvFD0weHLZauNVIDI7OLL+nXcFhYsyCb65bzgGkMoFFC3j07lYY9uBH5Ah3o0WohhF+3

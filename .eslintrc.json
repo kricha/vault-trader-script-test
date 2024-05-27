@@ -1,0 +1,40 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "eslint:recommended",
+      "prettier",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": ["prettier", "@typescript-eslint", "@stylistic"],
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { "argsIgnorePattern": "^_" }
+      ],
+      "linebreak-style": ["error", "unix"],
+      "eol-last": ["error", "always"],
+      "no-multiple-empty-lines": ["error"],
+      "padding-line-between-statements": [
+        "error",
+        { "blankLine": "always", "prev": "*", "next": "return" },
+        { "blankLine": "always", "prev": "directive", "next": "*" },
+        { "blankLine": "any", "prev": "directive", "next": "directive" },
+        { "blankLine": "always", "prev": "import", "next": "*" },
+        { "blankLine": "never", "prev": "import", "next": "import" },
+        { "blankLine": "always", "prev": "class", "next": "*" }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "printWidth": 120,
+          "tabWidth": 2,
+          "semi": true,
+          "singleQuote": true
+        }
+      ]
+    },
+    "globals": {
+      "React": true
+    }
+  }
